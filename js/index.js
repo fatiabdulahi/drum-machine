@@ -1,4 +1,37 @@
-var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}var drumAudio = [//9 drum elements with src attribute for audio element
+const createClass = function () {
+  function defineProperties(target, props) {
+    for (let i = 0; i < props.length; i++) {
+      let descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+}
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }subClass.prototype = Object.create(superClass && superClass.prototype, {constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+var drumAudio = [//9 drum elements with src attribute for audio element
 { id: 'kit & hat', padLetter: 'Q', keyCode: 81, src: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3', type: 'audio/mp3' },
 { id: 'Bld H1', padLetter: 'W', keyCode: 87, src: 'https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3', type: 'audio/mp3' },
 { id: 'Dry Ohh', padLetter: 'E', keyCode: 69, src: 'https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3', type: 'audio/mp3' },
@@ -22,7 +55,7 @@ DrumPad = function (_React$Component) {_inherits(DrumPad, _React$Component);func
       _this.audio.play();
       _this.audio.currentTime = 0; //set time audio should play at (0 seconds)
       _this.props.handleDisplay(_this.props.id); //changes value of parameter used in display function
-    }, _temp), _possibleConstructorReturn(_this, _ret);}_createClass(DrumPad, [{ key: 'componentDidMount', //method invoked immediately after component mounted using event listener
+    }, _temp), _possibleConstructorReturn(_this, _ret);}createClass(DrumPad, [{ key: 'componentDidMount', //method invoked immediately after component mounted using event listener
     value: function componentDidMount() {document.addEventListener('keydown', this.handleKeyDown); //window.focus()//set focus to the current window
     } //method for when component to be removed from DOM
   }, { key: 'componentWillUnmount', value: function componentWillUnmount() {document.removeEventListener('keydown', this.handleKeyDown);} //method to handle a key down event from keyboard - play HTML audio and change display
@@ -41,12 +74,8 @@ App = function (_React$Component2) {_inherits(App, _React$Component2);
     props));_this3.
 
 
-
-
-
-
     handleDisplay = function (display) {return _this3.setState({ display: display });};_this3.state = { display: '' };return _this3;} //changes state of display according to value of this.props.id in handleClick method
-  _createClass(App, [{ key: 'render',
+  createClass(App, [{ key: 'render',
     //render all 9 drum pads with padLetters & show display state
     //map method used to invoke function for each drum pad
     value: function render() {var _this4 = this;
