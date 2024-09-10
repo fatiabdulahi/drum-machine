@@ -1,6 +1,6 @@
 const createClass = function () {
   function defineProperties(target, props) {
-    for (let i = 0; i < props.length; i+=1) {
+    for (let i = 0; i < props.length; i += 1) {
       const descriptor = props[i];
       descriptor.enumerable = descriptor.enumerable || false;
       descriptor.configurable = true;
@@ -23,7 +23,7 @@ function possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
-  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  return call && (typeof call === 'object' || typeof call === 'function') ? call : self;
 }
 function inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
@@ -36,7 +36,7 @@ function inherits(subClass, superClass) {
   });
   if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var drumAudio = [//9 drum elements with src attribute for audio element
+var drumAudio = [
 { id: 'kit & hat', padLetter: 'Q', keyCode: 81, src: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3', type: 'audio/mp3' },
 { id: 'Bld H1', padLetter: 'W', keyCode: 87, src: 'https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3', type: 'audio/mp3' },
 { id: 'Dry Ohh', padLetter: 'E', keyCode: 69, src: 'https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3', type: 'audio/mp3' },
@@ -45,10 +45,15 @@ var drumAudio = [//9 drum elements with src attribute for audio element
 { id: 'Heater 1', padLetter: 'D', keyCode: 68, src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', type: 'audio/mp3' },
 { id: 'Brk Snr', padLetter: 'Z', keyCode: 90, src: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3', type: 'audio/mp3' },
 { id: 'Heater 2', padLetter: 'X', keyCode: 88, src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3', type: 'audio/mp3' },
-{ id: 'Heater 3', padLetter: 'C', keyCode: 67, src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3', type: 'audio/mp3' }];var
+{ id: 'Heater 3', padLetter: 'C', keyCode: 67, src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3', type: 'audio/mp3' }
+];
 
-
-DrumPad = function (_React$Component) {inherits(DrumPad, _React$Component);function DrumPad() {var _ref;var _temp, _this, _ret;classCallCheck(this, DrumPad);for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = DrumPad.__proto__ || Object.getPrototypeOf(DrumPad)).call.apply(_ref, [this].concat(args))), _this), _this.    handleKeyDown = function (event) {
+DrumPad = function (_React$Component) {inherits(DrumPad, _React$Component);
+  function DrumPad() {
+    var _ref;var _temp, _this, _ret;classCallCheck(this, DrumPad);
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];
+    }
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = DrumPad.__proto__ || Object.getPrototypeOf(DrumPad)).call.apply(_ref, [this].concat(args))), _this), _this.    handleKeyDown = function (event) {
       if (event.keyCode === _this.props.padLetter.charCodeAt()) {
         _this.audio.play();
         _this.audio.currentTime = 0; //set time audio should play at (0 seconds)
