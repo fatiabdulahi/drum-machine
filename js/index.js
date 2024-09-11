@@ -29,24 +29,88 @@ function possibleConstructorReturn(self, call) {
 }
 
 function inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);
+  if (typeof superClass !== 'function' && superClass !== null) {
+    throw new TypeError(`Super expression must either be null or a function, not ${typeof superClass}`);
   }
+  
   subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: { value: subClass, enumerable: false, writable: true, configurable: true }
+    constructor: { value: subClass, enumerable: false, writable: true, configurable: true },
   });
-  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+  
+  if (superClass) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(subClass, superClass);
+    } else {
+      // Deprecated but used as a fallback
+      subClass.__proto__ = superClass;
+    }
+  }
 }
-var drumAudio = [
-{ id: 'kit & hat', padLetter: 'Q', keyCode: 81, src: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3', type: 'audio/mp3' },
-{ id: 'Bld H1', padLetter: 'W', keyCode: 87, src: 'https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3', type: 'audio/mp3' },
-{ id: 'Dry Ohh', padLetter: 'E', keyCode: 69, src: 'https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3', type: 'audio/mp3' },
-{ id: 'Punchy Kick', padLetter: 'A', keyCode: 65, src: 'https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3', type: 'audio/mp3' },
-{ id: 'Side Stick', padLetter: 'S', keyCode: 83, src: 'https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3', type: 'audio/mp3' },
-{ id: 'Heater 1', padLetter: 'D', keyCode: 68, src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3', type: 'audio/mp3' },
-{ id: 'Brk Snr', padLetter: 'Z', keyCode: 90, src: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3', type: 'audio/mp3' },
-{ id: 'Heater 2', padLetter: 'X', keyCode: 88, src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3', type: 'audio/mp3' },
-{ id: 'Heater 3', padLetter: 'C', keyCode: 67, src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3', type: 'audio/mp3' }
+
+const drumAudio = [
+  {
+    id: 'kit & hat',
+    padLetter: 'Q',
+    keyCode: 81,
+    src: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3',
+    type: 'audio/mp3',
+  },
+  {
+    id: 'Bld H1',
+    padLetter: 'W',
+    keyCode: 87,
+    src: 'https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3',
+    type: 'audio/mp3',
+  },
+  {
+    id: 'Dry Ohh',
+    padLetter: 'E',
+    keyCode: 69,
+    src: 'https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3',
+    type: 'audio/mp3',
+  },
+  {
+    id: 'Punchy Kick',
+    padLetter: 'A',
+    keyCode: 65,
+    src: 'https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3',
+    type: 'audio/mp3',
+  },
+  {
+    id: 'Side Stick',
+    padLetter: 'S',
+    keyCode: 83,
+    src: 'https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3',
+    type: 'audio/mp3',
+  },
+  {
+    id: 'Heater 1',
+    padLetter: 'D',
+    keyCode: 68,
+    src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3',
+    type: 'audio/mp3',
+  },
+  {
+    id: 'Brk Snr',
+    padLetter: 'Z',
+    keyCode: 90,
+    src: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3',
+    type: 'audio/mp3',
+  },
+  {
+    id: 'Heater 2',
+    padLetter: 'X',
+    keyCode: 88,
+    src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3',
+    type: 'audio/mp3',
+  },
+  {
+    id: 'Heater 3',
+    padLetter: 'C',
+    keyCode: 67,
+    src: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3',
+    type: 'audio/mp3',
+  },
 ];
 
 DrumPad = function (_React$Component) {inherits(DrumPad, _React$Component);
