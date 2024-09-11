@@ -113,10 +113,12 @@ const drumAudio = [
   },
 ];
 
-DrumPad = function (_React$Component) {inherits(DrumPad, _React$Component);
+DrumPad = function (_React$Component) {
+  inherits(DrumPad, _React$Component);
   function DrumPad() {
     var _ref;var _temp, _this, _ret;classCallCheck(this, DrumPad);
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
     }
     return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = DrumPad.__proto__ || Object.getPrototypeOf(DrumPad)).call.apply(_ref, [this].concat(args))), _this), _this.    handleKeyDown = function (event) {
       if (event.keyCode === _this.props.padLetter.charCodeAt()) {
@@ -131,19 +133,29 @@ DrumPad = function (_React$Component) {inherits(DrumPad, _React$Component);
       _this.audio.currentTime = 0; //set time audio should play at (0 seconds)
       _this.props.handleDisplay(_this.props.id); //changes value of parameter used in display function
     }, _temp), possibleConstructorReturn(_this, _ret);}createClass(DrumPad, [{ key: 'componentDidMount', //method invoked immediately after component mounted using event listener
-    value: function componentDidMount() {document.addEventListener('keydown', this.handleKeyDown); //window.focus()//set focus to the current window
+    value: function componentDidMount() {
+      document.addEventListener('keydown', this.handleKeyDown); //window.focus()//set focus to the current window
     } //method for when component to be removed from DOM
-  }, { key: 'componentWillUnmount', value: function componentWillUnmount() {document.removeEventListener('keydown', this.handleKeyDown);} //method to handle a key down event from keyboard - play HTML audio and change display
+  }, { key: 'componentWillUnmount', value: function componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyDown);
+  } //method to handle a key down event from keyboard - play HTML audio and change display
     //no need to state actual keyCode
     //method to handle a click event on any of the 8 drum pads
   }, { key: 'render', //render letters on pads
-    value: function render() {var _this2 = this;var _props = this.props,id = _props.id,src = _props.src,padLetter = _props.padLetter;return React.createElement('div', { className: 'drum-pad', id: id, onClick: this.handleClick }, React.createElement('h1', null, padLetter),
-        React.createElement('audio', { ref: function ref(_ref2) {return _this2.audio = _ref2;}, className: 'clip', src: src, id: padLetter }));
-
-
-    } }]);return DrumPad;}(React.Component);
+    value: function render() {
+      var _this2 = this;var _props = this.props,id = _props.id,src = _props.src,padLetter = _props.padLetter;
+      return React.createElement('div', { className: 'drum-pad', id: id, onClick: this.handleClick 
+      },
+       React.createElement('h1', null, padLetter),
+        React.createElement('audio', { ref: function ref(_ref2) {
+          return _this2.audio = _ref2;
+        },
+        className: 'clip', src: src, id: padLetter }));
+    }
+   }]);
+   return DrumPad;
+  }(React.Component);
 //end of class
-var
 App = function (_React$Component2) {
   inherits(App, _React$Component2);
   function App(props) {
@@ -151,12 +163,21 @@ App = function (_React$Component2) {
     var _this3 = possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this,
     props));_this3.
 
-
-    handleDisplay = function (display) {return _this3.setState({ display: display });};_this3.state = { display: '' };return _this3;} //changes state of display according to value of this.props.id in handleClick method
+    handleDisplay = function (display) {
+      return _this3.setState({
+        display: display 
+      });
+    };
+    _this3.state = {
+      display: ''
+    };
+    return _this3;
+  } //changes state of display according to value of this.props.id in handleClick method
   createClass(App, [{ key: 'render',
     //render all 9 drum pads with padLetters & show display state
     //map method used to invoke function for each drum pad
-    value: function render() {var _this4 = this;
+    value: function render() {
+      var _this4 = this;
       return (
         React.createElement('div', { id: 'drum-machine' },
           React.createElement('div', null,
@@ -173,6 +194,8 @@ App = function (_React$Component2) {
         //end of drum-machine div
       );
     } //end of render()
-  }]);return App;}(React.Component); //end of class App
+  }]);
+  return App;
+}(React.Component); //end of class App
 
 ReactDOM.render(React.createElement(App, null), document.getElementById("root"));
