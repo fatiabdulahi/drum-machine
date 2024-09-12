@@ -19,14 +19,14 @@ body {
 }
 
 #display {
-  border: 3px solid #000000;
+  border: 3px solid #000;
   margin: 10px;
   height: 30px;
   border-radius: 20px;
   padding: 20px 20px;
   font-size: 2.1rem;
   font-weight: 700;
-  background-color: #000000;
+  background-color: #000;
 }
 
 .drum-pads {
@@ -39,7 +39,7 @@ body {
 .drum-pad {
   width: 100px;
   height: 100px;
-  border: 3px solid #000000;
+  border: 3px solid #000;
   border-radius: 50px;
   display: flex;
   justify-content: center;
