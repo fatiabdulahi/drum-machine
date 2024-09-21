@@ -1,0 +1,55 @@
+body {
+  background-color: #7e7abb;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  color: rgb(252, 252, 252);
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 12vh;
+}
+
+#display {
+  border: 3px solid #000;
+  margin: 10px;
+  height: 30px;
+  border-radius: 20px;
+  padding: 20px 20px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  background-color: #000;
+}
+
+.drum-pads {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #7e7abb;
+  border-radius: 20px;
+}
+
+.drum-pad {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #000;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+@media (max-width: 460px) {
+  .App {
+    margin-top: 22vh;
+  }
+}
